@@ -3,7 +3,6 @@ import axios from 'axios';
 const KEY = 'dc46b2bf0e575d3fd6c04fa612170e69';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-// список найпопулярніших фільмів на сьогодні
 export const fetchTrendingList = async () => {
   try {
     const { data } = await axios.get('trending/movie/day', {
@@ -20,7 +19,6 @@ export const fetchTrendingList = async () => {
   }
 };
 
-// пошук фільму за ключовим словом на сторінці фільмів
 export const fetchSearchMovies = async query => {
   try {
     const { data } = await axios.get('search/movie', {
@@ -36,7 +34,7 @@ export const fetchSearchMovies = async query => {
     throw error;
   }
 };
-// запит повної інформації про фільм для сторінки кінофільму
+
 export const fetchMovieInform = async movieId => {
   try {
     const { data } = await axios.get(`movie/${movieId}`, {
@@ -51,7 +49,7 @@ export const fetchMovieInform = async movieId => {
     throw error;
   }
 };
-//запит інформації про акторський склад для сторінки кінофільму
+
 export const fetchActors = async movieId => {
   try {
     const { data } = await axios.get(`movie/${movieId}/credits`, {
@@ -66,7 +64,7 @@ export const fetchActors = async movieId => {
     throw error;
   }
 };
-//запит оглядів для сторінки кінофільму
+
 export const fetchReviews = async movieId => {
   try {
     const { data } = await axios.get(`movie/${movieId}/reviews`, {
